@@ -1,0 +1,22 @@
+{
+  "name": "rubber-duck",
+  "version": "1.0.0",
+  "description": "## Description",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cattrn/rubber-duck.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cattrn/rubber-duck/issues"
+  },
+  "homepage": "https://github.com/cattrn/rubber-duck#readme",
+  "devDependencies": {
+    "eslint": "^8.27.0"
+  }
+}
