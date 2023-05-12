@@ -35,6 +35,7 @@ module.exports = {
   rules: {
     "prettier/prettier": ["error", {}, { usePrettierrc: true }],
     "react/react-in-jsx-scope": "off",
+    "react/no-unescaped-entities": "off",
     "jsx-a11y/accessible-emoji": "off",
     "react/prop-types": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
