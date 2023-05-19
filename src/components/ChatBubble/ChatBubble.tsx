@@ -1,4 +1,4 @@
-interface ChatBubbleProps {
+export interface ChatBubbleProps {
   sender: "duck" | "user"
   text: string
 }
