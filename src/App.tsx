@@ -20,7 +20,7 @@ function App() {
             <ChatBubble key={idx} sender={sender} text={text} />
           ))}
         </div>
-        <TextInput />
+        <TextInput setMessages={setMessages} />
       </div>
     </div>
   )
