@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App bg-neutral">
       <div className="max-w-xl mx-auto h-screen flex flex-col bg-base-200 p-4">
-        <div className="grow">
+        <div className="grow overflow-scroll">
           {messages.map(({ sender, text }, idx) => (
             <ChatBubble key={idx} sender={sender} text={text} />
           ))}
