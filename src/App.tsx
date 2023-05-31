@@ -19,6 +19,7 @@ function App() {
           {messages.map(({ sender, text }, idx) => (
             <ChatBubble key={idx} sender={sender} text={text} />
           ))}
+          <div className="h-px [overflow-anchor:auto]" />
         </div>
         <TextInput setMessages={setMessages} />
       </div>

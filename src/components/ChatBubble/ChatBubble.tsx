@@ -8,7 +8,7 @@ const ChatBubble = ({ sender, text }: ChatBubbleProps) => {
   const chatBubbleClass = sender === "user" ? "chat-bubble-primary" : ""
 
   return (
-    <div className={"chat " + chatClass}>
+    <div className={"chat [overflow-anchor:none] " + chatClass}>
       <div className={"chat-bubble " + chatBubbleClass}>{text}</div>
     </div>
   )
