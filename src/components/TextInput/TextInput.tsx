@@ -1,6 +1,6 @@
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { type ChatBubbleProps } from "../ChatBubble/ChatBubble"
 
@@ -11,6 +11,10 @@ interface TextInputProps {
 const TextInput = ({ setMessages }: TextInputProps) => {
   const [userMessage, setUserMessage] = useState("")
   const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (inputRef.current) inputRef.current.focus()
+  }, [])
 
   const handleClick = () => {
     setMessages((currentMessages) => [
