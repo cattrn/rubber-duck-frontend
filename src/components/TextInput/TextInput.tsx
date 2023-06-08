@@ -1,6 +1,6 @@
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { type ChatBubbleProps } from "../ChatBubble/ChatBubble"
 
@@ -10,26 +10,33 @@ interface TextInputProps {
 
 const TextInput = ({ setMessages }: TextInputProps) => {
   const [userMessage, setUserMessage] = useState("")
+  const inputRef = useRef<HTMLInputElement>(null)
 
-  const updateMessages = () => {
+  useEffect(() => {
+    if (inputRef.current) inputRef.current.focus()
+  }, [])
+
+  const handleClick = () => {
     setMessages((currentMessages) => [
       ...currentMessages,
       { sender: "user", text: userMessage },
     ])
     setUserMessage("")
+    if (inputRef.current) inputRef.current.focus()
   }
 
   return (
     <div className="form-control my-8 mx-4">
       <div className="input-group">
         <input
+          ref={inputRef}
           type="text"
           placeholder="Tell me your problems..."
           className="input grow focus:outline-none"
           value={userMessage}
           onChange={(e) => setUserMessage(e.target.value)}
         />
-        <button className="btn btn-square" onClick={updateMessages}>
+        <button className="btn btn-square" onClick={handleClick}>
           <FontAwesomeIcon icon={faPaperPlane} />
         </button>
       </div>
