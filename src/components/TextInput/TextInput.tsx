@@ -16,13 +16,19 @@ const TextInput = ({ setMessages }: TextInputProps) => {
     if (inputRef.current) inputRef.current.focus()
   }, [])
 
-  const handleClick = () => {
+  const handleSend = () => {
+    if (inputRef.current) inputRef.current.focus()
+    if (!userMessage) return
+
     setMessages((currentMessages) => [
       ...currentMessages,
       { sender: "user", text: userMessage },
     ])
     setUserMessage("")
-    if (inputRef.current) inputRef.current.focus()
+  }
+
+  const handleKeyDown = (key: string) => {
+    if (key === "Enter") handleSend()
   }
 
   return (
@@ -35,8 +41,9 @@ const TextInput = ({ setMessages }: TextInputProps) => {
           className="input grow focus:outline-none"
           value={userMessage}
           onChange={(e) => setUserMessage(e.target.value)}
+          onKeyDown={(e) => handleKeyDown(e.key)}
         />
-        <button className="btn btn-square" onClick={handleClick}>
+        <button className="btn btn-square" onClick={handleSend} disabled={!userMessage}>
           <FontAwesomeIcon icon={faPaperPlane} />
         </button>
       </div>
